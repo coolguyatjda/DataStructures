@@ -15,22 +15,23 @@ public class LinkedList<T> {
 	}
 	public void remove(T d){
 		Node current = head;
-		while(current != null){
-			if(current.data == d){
-				if(current == head)
-					head = current.next;
-				if(current.next == null)
-				current.data = current.next.data;
-				current.next = current.next.next;
-				break;
-			}
-			current = current.next;
+		if(current.data == d){
+			head = head.next;
+			return;
 		}
+		while(current.next.data != d && current.next.next != null)
+			current = current.next;
+		if(current.next.next == null && current.next.data == d){
+			current.next = null;
+			return;
+		}
+		current.next = current.next.next;
+		
 	}
 	public boolean search(T d){
 		Node current = head;
 		while(current != null){
-			if(current.data == d)
+			if(current.data.equals(d))
 				return true;
 			current = current.next;
 		}
@@ -63,41 +64,33 @@ public class LinkedList<T> {
 		return count;
 	}
 	public void insert(int pos, T item){
-		Node current = head;
-		Node new_node = new Node(item);
-		while(pos-- > 0){
-			if(pos == 2){
-				Node temp = current.next;
-				current.next = new_node;
-				new_node.next = temp;
-		}
-			current = current.next;
-		}
-	}
-	public T pop(){
 		int len = this.size();
 		Node current = head;
-		T value = null;
-		while(len-- >= 2){
-			if(len == 2){
-				 value = current.next.data;
-				current.next = null;
-			}
+		Node new_node = new Node(item);
+		while(len-- > pos)
 			current = current.next;
-		}
+		new_node.next = current.next;
+		current.next = new_node;
+	}
+	public T pop(){
+		T value = head.data;
+		head = head.next;
 		return value;
 	}
 	public T pop(int pos){
-		Node current = head;
-		System.out.println(head.next.data);
+		int len = this.size();
 		T value = null;
-		while(pos-- > 1){
-			if(pos == 2){
-				value = current.next.data;
-				current.next = current.next.next;
-			}
-			current = current.next;
+		if(pos == len){
+			value = head.data;
+			head = head.next;
+			return value;
 		}
+		
+		Node current = head;
+		while(len-- > pos)
+			current =  current.next;
+
+		current = current.next;
 		return value;
 	}
 	@Override

@@ -11,10 +11,10 @@ public class Test {
 		li.add(1);
 		li.add(2);
 		li.add(3);
+		li.remove(2);
 		System.out.println(li.toString());
-		//li.remove(3);
-		li.insert(2, 5);
-		System.out.println(li.toString());		
+		//li.pop();
+		System.out.println(li.search(5));		
 	}
 
 }
