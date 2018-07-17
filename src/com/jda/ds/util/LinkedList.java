@@ -2,10 +2,10 @@ package com.jda.ds.util;
 
 public class LinkedList<T> {
 	Node head;
-	class Node{
+	private class Node{
 		T data;
 		Node next;
-		Node(T d){ data = d; next = null;}
+		Node(T d){ this.data = d; this.next = null;}
 	}
 	public void add(T d){
 		Node new_node = new Node(d);
@@ -15,7 +15,7 @@ public class LinkedList<T> {
 	}
 	public void remove(T d){
 		Node current = head;
-		if(current.data == d){
+		if(current.data.equals(d)){
 			head = head.next;
 			return;
 		}
