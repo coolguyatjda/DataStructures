@@ -14,11 +14,11 @@ public class HashingProb {
 		String str = in.nextLine();
 		String strs[] = str.split("\\s+");
 		LinkedList<Integer>[] li = new LinkedList[11];
-		li[1].add(1);
-		li[1].add(2);
-		System.out.println(li[1]);
+	   LinkedList<Integer> lii = new LinkedList<>();
+	  
 		for(int i=0; i<strs.length; i++){
-			li[Integer.parseInt(strs[i])%11].add(Integer.parseInt(strs[i]));	
+			lii.add(Integer.parseInt(strs[i]));
+			li[Integer.parseInt(strs[i])%11] = lii;	
 		}
 		Scanner inp= new Scanner(System.in);
 		int input = inp.nextInt();
