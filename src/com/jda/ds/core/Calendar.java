@@ -14,10 +14,12 @@ public class Calendar {
 		int x = y0+y0/4-y0/100+y0/400;
 		int m0 = m + 12*((14-m)/12)-2 ;
 		int d0 = (d + x + 31*m0/12) % 7;
+		int count = 1;
 		int row = 0, column = d0;
 		while(days[m] > 0){
 			while(column < 7 && days[m]-- > 0){
-				cal[row][column] = 1;
+				cal[row][column] = count;
+				count++;
 				column++;
 			}
 			if(days[m] == 0) break;

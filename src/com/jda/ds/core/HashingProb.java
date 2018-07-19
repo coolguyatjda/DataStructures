@@ -15,18 +15,25 @@ public class HashingProb {
 		String strs[] = str.split("\\s+");
 		LinkedList<Integer>[] li = new LinkedList[11];
 	   LinkedList<Integer> lii = new LinkedList<>();
-	  
+//	   lii = null;
+	   lii.add(1);
+	  System.out.println(lii);
 		for(int i=0; i<strs.length; i++){
+			lii = li[Integer.parseInt(strs[i])%11];
 			lii.add(Integer.parseInt(strs[i]));
 			li[Integer.parseInt(strs[i])%11] = lii;	
 		}
+		
 		Scanner inp= new Scanner(System.in);
 		int input = inp.nextInt();
-		if(li[input%11].search(input))
-			li[input%11].add(input);
+		lii = li[input%11];
+		if(lii.search(input))
+			lii.add(input);
 		else
-			li[input%11].remove(input);
-		for(int i=0; i<10; i++)
+			lii.remove(input);
+		li[input%11] = lii;
+		
+		for(int i=0; i<11; i++)
 			System.out.println(li[i]);
 	}
 

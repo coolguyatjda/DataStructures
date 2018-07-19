@@ -1,7 +1,7 @@
 package com.jda.ds.util;
 
 public class Deque<T> {
-	Node head= null;
+	Node head;
 	Node tail;
 	class Node{
 		T data;
@@ -12,7 +12,7 @@ public class Deque<T> {
 		Node new_node = new Node(d);
 		new_node.next = head;
 		head = new_node;
-		if(this.size() == 1)
+		if(this.size() == 1) 
 			tail = head;
 	}
 	public void addRear(T d){
