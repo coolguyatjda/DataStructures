@@ -34,11 +34,11 @@ public class CalanderLinkedList {
 				}
 				System.out.println("S M T W TH F S");
 			for(int i=0; i<7; i++){
-				for(int l=0; j<5; j++)
-					System.out.print();
+				for(int l=0; l<5; l++)
+					if(que.isEmpty() == false)
+					System.out.print(que.dequeue());
+				System.out.println();
 			}
 			}
 		   
 	  }
-
-}
