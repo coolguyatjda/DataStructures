@@ -13,6 +13,12 @@ public class LinkedList<T> {
 		head = new_node;
 		//System.out.println(head.data);
 	}
+	public LinkedList(){
+		this.head = null;
+	}
+	public LinkedList(LinkedList<T> li){
+		this.head = li.head;
+	}
 	public void remove(T d){
 		Node current = head;
 		if(current.data.equals(d)){
