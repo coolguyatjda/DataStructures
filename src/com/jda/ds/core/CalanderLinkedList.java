@@ -1,6 +1,7 @@
 package com.jda.ds.core;
 
-import com.jda.ds.util.Queue;;
+import com.jda.ds.util.Queue;
+import com.jda.ds.util.Stack;;
 
 public class CalanderLinkedList {
 	/**
@@ -25,6 +26,7 @@ public class CalanderLinkedList {
 			  int day=dayOfWeek(month,1,year);
 				System.out.println("Day of Week is "+day+".");
 				Queue<Integer> que=new Queue<>();
+				Stack<Integer> stk = new Stack<>();
 				int j=0,k=0;
 			  for(int i=0;i<=day;i++)
 				  que.enqueue(0);
@@ -32,11 +34,23 @@ public class CalanderLinkedList {
 				{
 					 que.enqueue(i);
 				}
+				for(int i=0;i<=day;i++)
+					  stk.push(0);
+					for(int i=1;i<32;i++)
+					{
+						 stk.push(i);
+					}
 				System.out.println("S M T W TH F S");
 			for(int i=0; i<7; i++){
 				for(int l=0; l<5; l++)
 					if(que.isEmpty() == false)
 					System.out.print(que.dequeue());
+				System.out.println();
+			}
+			for(int i=0; i<7; i++){
+				for(int l=0; l<5; l++)
+					if(que.isEmpty() == false)
+					System.out.print(stk.pop());
 				System.out.println();
 			}
 			}
